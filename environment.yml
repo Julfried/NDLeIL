@@ -1,0 +1,12 @@
+name: NDLeIL
+channels:
+  - conda-forge
+  - defaults
+
+dependencies:
+  - python=3.12.*
+  - pip
+  - ipykernel
+  - xgboost
+  - pip:
+    - git+https://github.com/UBod/pyMLaux.git
