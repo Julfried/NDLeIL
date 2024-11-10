@@ -11,3 +11,4 @@ dependencies:
   - nbconvert
   - pip:
     - git+https://github.com/UBod/pyMLaux.git
+    - tensorflow
