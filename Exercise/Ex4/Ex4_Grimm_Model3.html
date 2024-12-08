@@ -7760,9 +7760,8 @@ Found 7008 files belonging to 31 classes.
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Create-Model">Create Model<a class="anchor-link" href="#Create-Model">¶</a></h2><h3 id="Modified-compared-to-model-2:">Modified compared to model 2:<a class="anchor-link" href="#Modified-compared-to-model-2:">¶</a></h3><ul>
 <li>Added intermediate conv block with 48 filters to increase model capacity and have a more gradual reduction of spatial dimensions</li>
-<li>Enhanced data augmentation (RandomBrightness=0.3, RandomContrast=0.2)</li>
 <li>Added learning rate plateau reduction (factor=0.3, patience=2)</li>
-<li>Initial learning rate set to 1e-3</li>
+<li>Adam solver with default Initial learning rate set to 1e-4</li>
 </ul>
 </div>
 </div>
@@ -8363,16 +8362,29 @@ Epoch 50: val_mae did not improve from 6.27208
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [114]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">test_data</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre><span class="ansi-bold">110/110</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">79s</span> 677ms/step
+</pre>
 </div>
 </div>
 </div>
@@ -8382,7 +8394,7 @@ Epoch 50: val_mae did not improve from 6.27208
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [115]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">evaluate_regression_result</span><span class="p">(</span><span class="n">test_y</span> <span class="o">+</span> <span class="mf">20.</span><span class="p">,</span> <span class="n">pred</span> <span class="o">+</span> <span class="mf">20.</span><span class="p">)</span> <span class="c1"># Add  20.0 to make sure we add the correct offset </span>
@@ -8399,11 +8411,11 @@ Epoch 50: val_mae did not improve from 6.27208
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>Target feature 0:
-    Mean squared error (MSE):           55.537
-    Root mean squared error (RMSE):      7.452
-    Mean absolute error (MAE):           6.051
-    Coefficient of determination (R2):   0.314
-    Correlation coefficient (Pearson):   0.566 (p = 0.00e+00)
+    Mean squared error (MSE):           59.094
+    Root mean squared error (RMSE):      7.687
+    Mean absolute error (MAE):           6.291
+    Coefficient of determination (R2):   0.270
+    Correlation coefficient (Pearson):   0.523 (p = 0.00e+00)
 </pre>
 </div>
 </div>
@@ -8414,7 +8426,7 @@ Epoch 50: val_mae did not improve from 6.27208
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [116]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="o">!</span>jupyter<span class="w"> </span>nbconvert<span class="w"> </span>--to<span class="w"> </span>html<span class="w"> </span>Ex4_Grimm_Model3.ipynb
@@ -8430,9 +8442,9 @@ Epoch 50: val_mae did not improve from 6.27208
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>[NbConvertApp] Converting notebook Ex4_Grimm_Model2.ipynb to html
+<pre>[NbConvertApp] Converting notebook Ex4_Grimm_Model3.ipynb to html
 [NbConvertApp] WARNING | Alternative text is missing on 2 image(s).
-[NbConvertApp] Writing 840214 bytes to Ex4_Grimm_Model2.html
+[NbConvertApp] Writing 846635 bytes to Ex4_Grimm_Model3.html
 </pre>
 </div>
 </div>
